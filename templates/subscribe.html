@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Подписка{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Оформить подписку</h1>
+        </div>
+        <div class="container">
+            <p>После оформления подписки, Вам будет доступен платный контент</p>
+            {% if msg %}
+                {{ msg }}
+            {% else %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-dark" value="Подписаться на платные статьи" />
+                </form>
+            {% endif %}
+            <br>
+            <p><a href="/">Вернуться на главную страницу</a></p>
+        </div>
+    </div>
+{% endblock %}

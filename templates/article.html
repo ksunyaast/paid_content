@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Заголовок статьи{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>{{ article.title }}</h1>
+        </div>
+        <div class="container">
+            {% if not subscription and article.paid_article %}
+                <p>Для того, чтобы читать данную статью, необходимо подписаться на журнал!</p>
+                <p><p><a href="/subscribe" class="btn btn-dark">Оформить подписку</a></p></p>
+            {% else %}
+                <img src="{% get_media_prefix %}{{ article.image }}" />
+                <div>{{ article.text }}</div>
+            {% endif %}
+            <p><a href="/articles">Вернуться к статьям</a></p>
+        </div>
+    </div>
+{% endblock %}

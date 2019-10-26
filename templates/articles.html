@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Журнал{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Список статей</h1>
+        </div>
+        <div class="articles">
+            {% for article in articles %}
+                <p><a href="{{ article.id }}/"> {{ article.title }} </a></p>
+            {% endfor %}
+        </div>
+        <p><a href="/" class="btn btn-outline-primary">Вернуться на главную страницу</a></p>
+    </div>
+{% endblock %}
